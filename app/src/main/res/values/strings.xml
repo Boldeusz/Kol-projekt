@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">C4_Nienajadlo_46481_kol1</string>
+
+    <string-array name="planets">
+        <item>Mercury   10 </item>
+        <item>Venus     20</item>
+        <item>Earth     30</item>
+        <item>Mars      40</item>
+        <item>Jupiter   50</item>
+        <item>Saturn    60</item>
+        <item>Uranus    70</item>
+        <item>Neptune   80</item>
+    </string-array>
+    <string-array name="numberPlanets">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+    </string-array>
+
+</resources>
