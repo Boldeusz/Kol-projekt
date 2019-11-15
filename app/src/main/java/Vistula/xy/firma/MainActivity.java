@@ -1,9 +1,11 @@
 package Vistula.xy.firma;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +17,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -26,15 +31,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Spinner spinner_46481;
     TextView tv1_46481;
     TextView tv2_46481;
-
     EditText et_46481_ilosc;
-
     Button btn_46481_koszyk;
     Button btn_46481_kasa;
-
-   //  String spinnerText;
-
     TextView tv_46481_wynikString;
+
 
 
 
@@ -44,31 +45,49 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
 
+
+
+
         et_46481_name = findViewById(R.id.et_46481_name);
         et_46481_surname = findViewById(R.id.et_46481_surname);
-        //spinner_46481 = findViewById(R.id.spinner_46481);
-
-
         tv_46481_wynikString = findViewById(R.id.tv_46481_wynikString);
-
         tv1_46481 = findViewById(R.id.tv1_46481);
         tv2_46481 = findViewById(R.id.tv2_46481);
         et_46481_ilosc = findViewById(R.id.et_46481_ilosc);
         btn_46481_koszyk = findViewById(R.id.btn_46481_koszyk);
         btn_46481_kasa = findViewById(R.id.btn_46481_kasa);
 
-//        Map<String, Integer> list = new HashMap<>();
-//
-//        list.put("Merkury", 20);
-//        list.put("Ziemia", 30);
-//        list.put("Wenus", 50);
-//
-//        list.entrySet();
-
-
         Spinner spinner = findViewById(R.id.spinner_46481);
+        spinner.setOnItemSelectedListener(this);
+
+//        HashMap<String,String> hashMap = new HashMap<>();
+//        hashMap.put("Monday", "10");
+//        hashMap.put("Tuesday", "20");
+//        hashMap.put("Wednesday", "30");
+//
+//        ArrayAdapter<HashMap<String, String>> arrayAdapter = new ArrayAdapter<HashMap<String, String>>(getApplicationContext(),android.R.layout.simple_spinner_item);
+//        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner.setAdapter(arrayAdapter);
 
 
+
+
+
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(1);
+        arrayList.add(2);
+//        arrayList.add("english");
+//        arrayList.add("french");
+//        arrayList.add("polish");
+//        arrayList.add("japanese");
+//        arrayList.add("russian");
+//        arrayList.add("czech");
+//        arrayList.add("romanian");
+
+        ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
 
 //        String[] planetArray = getResources().getStringArray(R.array.planets);
 //        String[] planetNumber = getResources().getStringArray(R.array.numberPlanets);
@@ -79,42 +98,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //            map.put(planetArray[i], planetNumber[i]);
 //        }
 //
-//        ArrayAdapter<Map> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
+//
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planets, android.R.layout.simple_spinner_item);
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        spinner.setAdapter(adapter);
 //        spinner.setOnItemSelectedListener(this);
-
-
-
-
-
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planets, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-
-//        spinnerText = spinner.getSelectedItem().toString();
-//
-//        tv1_46481.setText(spinnerText);
-
-    //    String name = getIntent().getStringExtra("pierwsza");
-
-//        tv_46481_wynikString.setText(name);
-
-
-
-
-
 
         btn_46481_koszyk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String name = tv1_46481.getText().toString().trim();
+                //String name = tv1_46481.getText().toString().trim();
+                int name = Integer.parseInt(tv1_46481.getText().toString());
+                int mnoznik = Integer.parseInt(et_46481_ilosc.getText().toString());
 
-             //   tv_46481_wynikString.setText(name);
-                tv_46481_wynikString.append(name + "\n");
+                int wynik = (name * mnoznik);
+
+
+                tv_46481_wynikString.append(wynik + "\n");
 
 
 
@@ -141,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
     }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
