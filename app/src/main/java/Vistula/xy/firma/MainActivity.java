@@ -1,11 +1,10 @@
 package Vistula.xy.firma;
 
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ListActivity;
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -60,18 +59,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Spinner spinner = findViewById(R.id.spinner_46481);
         spinner.setOnItemSelectedListener(this);
 
-//        HashMap<String,String> hashMap = new HashMap<>();
-//        hashMap.put("Monday", "10");
-//        hashMap.put("Tuesday", "20");
-//        hashMap.put("Wednesday", "30");
-//
-//        ArrayAdapter<HashMap<String, String>> arrayAdapter = new ArrayAdapter<HashMap<String, String>>(getApplicationContext(),android.R.layout.simple_spinner_item);
-//        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(arrayAdapter);
+        HashMap<String, Integer> hashMap = new HashMap<>();
 
+        for (Map.Entry<String, Integer> entry: hashMap.entrySet()
+             ) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
 
-
-
+        }
 
 
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -89,20 +84,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
 
-//        String[] planetArray = getResources().getStringArray(R.array.planets);
-//        String[] planetNumber = getResources().getStringArray(R.array.numberPlanets);
-//
-//        Map<String, String> map = new HashMap<>();
-//
-//        for (int i=0;i < planetArray.length; i++){
-//            map.put(planetArray[i], planetNumber[i]);
-//        }
-//
-//
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planets, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(adapter);
-//        spinner.setOnItemSelectedListener(this);
+
+
 
         btn_46481_koszyk.setOnClickListener(new View.OnClickListener() {
             @Override
